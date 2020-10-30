@@ -1,5 +1,3 @@
-const body = document.querySelector('body');
-
 class CountdownTimer {
 
     constructor({selector, targetDate}) {
@@ -10,45 +8,21 @@ class CountdownTimer {
 
     run = function() {
 
-        
-
-        setInterval(() => {
+      setInterval(() => {
         const time = this.targetDate - Date.now(); 
         this.refresh(time); 
-        }, 1000);
+      }, 1000);
 
     }
 
     getRefs = function() {
 
-        body.innerHTML += `<div class="timer" id="${this.selector}">
-        <div class="field">
-          <span class="value" data-value="days">11</span>
-          <span class="label">Days</span>
-        </div>
-      
-        <div class="field">
-          <span class="value" data-value="hours">11</span>
-          <span class="label">Hours</span>
-        </div>
-      
-        <div class="field">
-          <span class="value" data-value="mins">11</span>
-          <span class="label">Minutes</span>
-        </div>
-      
-        <div class="field">
-          <span class="value" data-value="secs">11</span>
-          <span class="label">Seconds</span>
-        </div>
-      </div>`
-
-        const container = document.querySelector(`#${this.selector}`);
-        const days = container.querySelector('[data-value="days"]');
-        const hours = container.querySelector('[data-value="hours"]');
-        const mins = container.querySelector('[data-value="mins"]');
-        const secs = container.querySelector('[data-value="secs"]'); 
-        return {days, hours, mins, secs};
+      const container = document.querySelector(`#${this.selector}`);
+      const days = container.querySelector('[data-value="days"]');
+      const hours = container.querySelector('[data-value="hours"]');
+      const mins = container.querySelector('[data-value="mins"]');
+      const secs = container.querySelector('[data-value="secs"]'); 
+      return {days, hours, mins, secs};
 
     }
 
